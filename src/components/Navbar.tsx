@@ -63,30 +63,31 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 shadow-[0_1px_4px_rgba(0,0,0,0.04)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-2.5 sm:gap-6">
         {/* Official Brand Logo matching the user-uploaded image */}
         <button
           onClick={() => handlePageClick('home')}
-          className="flex items-center group focus:outline-none transition-transform hover:opacity-95"
+          className="flex items-center shrink-0 min-w-0 group focus:outline-none transition-transform hover:opacity-95 active:scale-98"
           aria-label="Space Real Estate Home"
         >
           <SpaceLogo
             variant="horizontal"
+            size="responsive"
             color="#0D1117"
             accentColor="#6B7280"
-            markClassName="w-10 h-10 transition-transform group-hover:scale-105"
+            markClassName="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 transition-transform group-hover:scale-105"
           />
         </button>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
           {navItems.map((item) => {
             const isActive = activePage === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => handlePageClick(item.id)}
-                className={`text-sm font-semibold transition-colors relative py-1 ${
+                className={`text-sm font-semibold transition-colors relative py-1 whitespace-nowrap shrink-0 ${
                   isActive
                     ? 'text-gray-950 font-bold'
                     : 'text-gray-600 hover:text-gray-950'
@@ -102,12 +103,12 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Right Action: Language Switcher + Get in Touch Button */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           {/* Language Switcher Dropdown (EN, AR, RU, ZH) */}
           <div className="relative" ref={langDropdownRef}>
             <button
               onClick={() => setLangMenuOpen(!langMenuOpen)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-gray-800 hover:bg-gray-100 border border-gray-200 transition-all focus:outline-none active:scale-95"
+              className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-bold text-gray-800 hover:bg-gray-100 border border-gray-200 transition-all focus:outline-none active:scale-95"
               aria-expanded={langMenuOpen}
               title="Select Language / تغيير اللغة"
             >
@@ -156,10 +157,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             {t.common.getInTouch}
           </button>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile & Tablet Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-gray-950 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 text-gray-700 hover:text-gray-950 rounded-lg hover:bg-gray-100 transition-colors"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -167,9 +168,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile & Tablet Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-3 animate-fadeIn">
+        <div className="lg:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-3 animate-fadeIn">
           {/* Quick Language Toggle Bar */}
           <div className="p-1.5 bg-gray-50 rounded-xl border border-gray-100">
             <div className="text-[10px] font-bold uppercase text-gray-400 px-2 py-1">

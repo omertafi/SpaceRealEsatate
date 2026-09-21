@@ -162,75 +162,166 @@ export const AboutView: React.FC<AboutViewProps> = ({ currentLang, onNavigatePag
     }[currentLang] || '',
 
     leadershipBadge: {
-      en: 'OWNERSHIP & LEADERSHIP',
-      ar: 'القيادة والشركاء',
-      ur: 'قیادت اور مالکان',
-      ru: 'РУКОВОДСТВО И ПАРТНЕРЫ',
-      zh: '管理层与合伙人',
-    }[currentLang] || 'OWNERSHIP & LEADERSHIP',
+      en: 'OWNERSHIP & FOUNDING PARTNERS',
+      ar: 'الملاك والشركاء المؤسسون',
+      ur: 'مالکان اور بانی شراکت دار',
+      ru: 'СОБСТВЕННИКИ И УЧРЕДИТЕЛИ',
+      zh: '所有权人与创始合伙人',
+    }[currentLang] || 'OWNERSHIP & FOUNDING PARTNERS',
 
     leadershipTitle: {
-      en: 'Founding Partners & Leadership',
-      ar: 'الشركاء المؤسسون والملاك',
-      ur: 'بانی شراکت دار اور قیادت',
-      ru: 'Основатели и руководство компании',
-      zh: '创始合伙人与核心管理团队',
-    }[currentLang] || 'Founding Partners & Leadership',
+      en: 'Founding Partners & Owners',
+      ar: 'الشركاء الأربعة والملاك المؤسسون',
+      ur: 'چار بانی شراکت دار اور مالکان',
+      ru: 'Основатели и совладельцы компании',
+      zh: '四位创始合伙人兼所有权人',
+    }[currentLang] || 'Founding Partners & Owners',
 
     leadershipDesc: {
-      en: 'The leadership team and owners overseeing real estate operations and portfolio growth in Ajman',
-      ar: 'فريق الإدارة والملاك المشرفون على العمليات العقارية وتنمية المحافظ في عجمان',
-      ur: 'انتظامی ٹیم اور مالکان جو عجمان میں ریئل اسٹیٹ آپریشنز اور پورٹ فولیو کی نگرانی کرتے ہیں',
-      ru: 'Команда руководителей и собственников, направляющая развитие активов в Аджмане',
-      zh: '掌舵阿吉曼房产运营、全权资产托管及投资组合增长的核心领导团队',
+      en: 'Space Real Estate is owned and steered by four partners combining regional leadership, diverse industry experience, and strategic dedication to the UAE real estate market.',
+      ar: 'تأسست شركة سبيس العقارية وتعود ملكيتها لأربعة شركاء وملاك يجمعون بين القيادة والخبرات التنفيذية المتنوعة والرؤية الاستراتيجية في السوق العقاري بدولة الإمارات.',
+      ur: 'سپیْس ریئل اسٹیٹ چار شراکت داروں اور مالکان کی زیر نگرانی ہے جو اماراتی مارکیٹ میں شاندار قیادت اور تجربہ رکھتے ہیں۔',
+      ru: 'Space Real Estate принадлежит и управляется четырьмя партнерами-основателями, объединяющими глубокий опыт и стратегическое видение.',
+      zh: 'Space Real Estate 由四位合伙人联合创立并共同持有，汇聚卓越的行业治理与战略投资远见。',
     }[currentLang] || '',
 
-    partnerLabel: {
-      en: 'Partner / Owner',
-      ar: 'الشريك المؤسس',
-      ur: 'شراکت دار / مالک',
-      ru: 'Партнер / Совладелец',
-      zh: '合伙人 / 负责人',
-    }[currentLang] || 'Partner / Owner',
-
-    partnerRoles: [
+    partners: [
       {
-        en: 'Managing Partner',
-        ar: 'الشريك الإداري',
-        ur: 'منیجنگ پارٹنر',
-        ru: 'Управляющий партнер',
-        zh: '管理合伙人',
-      }[currentLang] || 'Managing Partner',
+        id: 1,
+        initials: 'MA',
+        image: '/owners/mohamed-alobadli.jpg',
+        name: {
+          en: 'Mr. Mohamed Alobadli',
+          ar: 'السيد / محمد العبيدلي',
+          ur: 'مسٹر محمد العبیدلی',
+          ru: 'Г-н Мохамед Алобадли',
+          zh: 'Mohamed Alobadli 先生',
+        }[currentLang] || 'Mr. Mohamed Alobadli',
+        role: {
+          en: 'Managing Partner & Owner',
+          ar: 'شريك إداري ومالك مؤسس',
+          ur: 'منیجنگ پارٹنر و مالک',
+          ru: 'Управляющий партнер и совладелец',
+          zh: '管理合伙人兼所有权人',
+        }[currentLang] || 'Managing Partner & Owner',
+        nationality: {
+          en: 'Emirati Citizen',
+          ar: 'مواطن إماراتي',
+          ur: 'اماراتی شہری',
+          ru: 'Гражданин ОАЭ',
+          zh: '阿联酋公民',
+        }[currentLang] || 'Emirati Citizen',
+        flag: '🇦🇪',
+        bio: {
+          en: 'Founding partner and owner providing overarching executive leadership, governance, and institutional direction in the UAE property sector.',
+          ar: 'شريك ومالك مؤسس يقود التوجه العام والحوكمة المؤسسية والتوسع الاستراتيجي في قطاع التطوير وإدارة الأصول العقارية.',
+          ur: 'بانی پارٹنر اور مالک جو اماراتي ریئل اسٹیٹ میں ایگزیکٹو قیادت اور ادارہ جاتی رہنمائي فراہم کرتے ہیں۔',
+          ru: 'Партнер-основатель и совладелец, определяющий стратегию развития, корпоративное управление и институциональный рост.',
+          zh: '创始合伙人兼所有人，负责全面高管治理、机构发展战略及阿联酋房产市场拓展。',
+        }[currentLang] || '',
+      },
       {
-        en: 'Partner - Property Management',
-        ar: 'شريك تنفيذي - إدارة الأملاك',
-        ur: 'پارٹنر - پراپرٹی مینجمنٹ',
-        ru: 'Партнер - Управление недвижимостью',
-        zh: '合伙人 · 物业托管运营',
-      }[currentLang] || 'Partner - Property Management',
+        id: 2,
+        initials: 'ME',
+        image: '/owners/mohamed-elalfi.jpg',
+        name: {
+          en: 'Mr. Mohamed Elalfi',
+          ar: 'السيد / محمد الألفي',
+          ur: 'مسٹر محمد الالفی',
+          ru: 'Г-н Мохамед Эль-Альфи',
+          zh: 'Mohamed Elalfi 先生',
+        }[currentLang] || 'Mr. Mohamed Elalfi',
+        role: {
+          en: 'Partner & Owner',
+          ar: 'شريك ومالك مؤسس',
+          ur: 'شریک و مالک',
+          ru: 'Партнер и совладелец',
+          zh: '合伙人兼所有权人',
+        }[currentLang] || 'Partner & Owner',
+        nationality: {
+          en: 'Egyptian National',
+          ar: 'مصري الجنسية',
+          ur: 'مصری شہری',
+          ru: 'Гражданин Египта',
+          zh: '埃及籍',
+        }[currentLang] || 'Egyptian National',
+        flag: '🇪🇬',
+        bio: {
+          en: 'Founding partner and owner overseeing operational excellence, end-to-end asset management workflows, and premier client advisory.',
+          ar: 'شريك ومالك مؤسس يشرف على العمليات التشغيلية، ومطابقة معايير إدارة الأملاك، وتقديم استشارات المحافظ الاستثمارية للعملاء.',
+          ur: 'بانی پارٹنر اور مالک جو آپریشنل امور، پراپرٹی مینجمنٹ اور کلائنٹ ایڈوائزری کی نگرانی کرتے ہیں۔',
+          ru: 'Партнер-основатель и совладелец, курирующий операционные процессы, регламенты управления объектами и консультации инвесторов.',
+          zh: '创始合伙人兼所有人，统筹全流程资产托管运营标准、招商管理与高净值客户咨询。',
+        }[currentLang] || '',
+      },
       {
-        en: 'Partner - Real Estate Sales',
-        ar: 'شريك تنفيذي - المبيعات',
-        ur: 'پارٹنر - ریئل اسٹیٹ سیلز',
-        ru: 'Партнер - Продажи и маркетинг',
-        zh: '合伙人 · 房产投资销售',
-      }[currentLang] || 'Partner - Real Estate Sales',
+        id: 3,
+        initials: 'AA',
+        name: {
+          en: 'Mr. Abdullah Alobadli',
+          ar: 'السيد / عبد الله العبيدلي',
+          ur: 'مسٹر عبداللہ العبیدلی',
+          ru: 'Г-н Абдулла Алобадли',
+          zh: 'Abdullah Alobadli 先生',
+        }[currentLang] || 'Mr. Abdullah Alobadli',
+        role: {
+          en: 'Partner & Owner',
+          ar: 'شريك ومالك مؤسس',
+          ur: 'شریک و مالک',
+          ru: 'Партнер и совладелец',
+          zh: '合伙人兼所有权人',
+        }[currentLang] || 'Partner & Owner',
+        nationality: {
+          en: 'Emirati Citizen',
+          ar: 'مواطن إماراتي',
+          ur: 'اماراتی شہری',
+          ru: 'Гражданин ОАЭ',
+          zh: '阿联酋公民',
+        }[currentLang] || 'Emirati Citizen',
+        flag: '🇦🇪',
+        bio: {
+          en: 'Founding partner and owner spearheading strategic relationships, developer alliances, and portfolio expansion across the Emirates.',
+          ar: 'شريك ومالك مؤسس يعزز التحالفات الاستراتيجية مع كبار المطورين العقاريين، ويقود نمو وتوسيع المحفظة العقارية في الدولة.',
+          ur: 'بانی پارٹنر اور مالک جو امارات بھر میں معروف ڈویلپرز کے ساتھ اسٹریٹجک تعلقات کو فروغ دیتے ہیں۔',
+          ru: 'Партнер-основатель и совладелец, развивающий партнерские связи с ведущими застройщиками и расширяющий портфель компании.',
+          zh: '创始合伙人兼所有人，主管阿联酋全域开发商战略联盟拓展、项目销售独家代理与资产增值。',
+        }[currentLang] || '',
+      },
       {
-        en: 'Strategic Partner',
-        ar: 'شريك استراتيجي',
-        ur: 'اسٹریٹجک پارٹنر',
-        ru: 'Стратеговский партнер',
-        zh: '战略合伙人',
-      }[currentLang] || 'Strategic Partner',
+        id: 4,
+        initials: 'MS',
+        image: '/owners/mahmoud-al-sheikh.jpg',
+        name: {
+          en: 'Mr. Mahmoud Al-Sheikh',
+          ar: 'السيد / محمود الشيخ',
+          ur: 'مسٹر محمود الشیخ',
+          ru: 'Г-н Махмуд Аль-Шейх',
+          zh: 'Mahmoud Al-Sheikh 先生',
+        }[currentLang] || 'Mr. Mahmoud Al-Sheikh',
+        role: {
+          en: 'Partner & Owner',
+          ar: 'شريك ومالك مؤسس',
+          ur: 'شریک و مالک',
+          ru: 'Партнер и совладелец',
+          zh: '合伙人兼所有权人',
+        }[currentLang] || 'Partner & Owner',
+        nationality: {
+          en: 'Iranian National',
+          ar: 'إيراني الجنسية',
+          ur: 'ایرانی شہری',
+          ru: 'Гражданин Ирана',
+          zh: '伊朗籍',
+        }[currentLang] || 'Iranian National',
+        flag: '🇮🇷',
+        bio: {
+          en: 'Founding partner and owner bringing deep international investor networks, cross-border market intelligence, and private wealth placement.',
+          ar: 'شريك ومالك مؤسس يمتلك شبكة علاقات دولية واسعة مع كبار المستثمرين، ويشرف على استقطاب وتوجيه رؤوس الأموال العابرة للحدود.',
+          ur: 'بانی پارٹنر اور مالک جو بین الاقوامی سرمایہ کاروں کے ساتھ تعلقات اور سرحد پار سرمایہ کاری کے امور سنبھالتے ہیں۔',
+          ru: 'Партнер-основатель и совладелец, отвечающий за международные инвестиционные связи, привлечение капитала и глобальную аналитику.',
+          zh: '创始合伙人兼所有人，深耕国际跨国资本流动、高净值私人家族办公室对接与海外投资配置。',
+        }[currentLang] || '',
+      },
     ],
-
-    partnerPlaceholder: {
-      en: 'Reserved placeholder for photo and executive profile details.',
-      ar: 'مساحة مخصصة للنبذة التعريفية والتفاصيل الخاصة بالمالك.',
-      ur: 'تصویر اور تعارفی معلومات کے لیے مخصوص جگہ۔',
-      ru: 'Место зарезервировано для фотографии и биографии руководителя.',
-      zh: '照片与高管资历履历预留展示位。',
-    }[currentLang] || '',
   };
 
   return (
@@ -361,35 +452,67 @@ export const AboutView: React.FC<AboutViewProps> = ({ currentLang, onNavigatePag
           {/* 5. OWNERS & LEADERSHIP TEAM */}
           <div className="pt-16 mt-16 border-t border-gray-100">
             <div className="text-center mb-12">
-              <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-gray-400 block mb-2">
+              <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#C79D3B] block mb-2">
                 {t.leadershipBadge}
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-950 tracking-tight">
                 {t.leadershipTitle}
               </h2>
-              <p className="text-gray-500 text-xs sm:text-sm mt-2 max-w-md mx-auto">
+              <p className="text-gray-500 text-xs sm:text-sm mt-2 max-w-xl mx-auto leading-relaxed">
                 {t.leadershipDesc}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {[1, 2, 3, 4].map((idx) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {t.partners.map((partner) => (
                 <div
-                  key={idx}
-                  className="bg-[#F8F8F6] rounded-xl p-6 border border-black/[0.03] flex flex-col items-center text-center hover:border-black/10 transition-colors"
+                  key={partner.id}
+                  className="bg-[#F8F8F6] rounded-2xl p-6 border border-black/[0.04] flex flex-col items-center text-center hover:border-[#C79D3B]/40 hover:shadow-lg transition-all duration-300 group"
                 >
-                  {/* Photo Placeholder */}
-                  <div className="w-20 h-20 rounded-full bg-white border-2 border-dashed border-gray-300 flex items-center justify-center text-gray-400 mb-4 shadow-sm">
-                    <User className="w-8 h-8 text-gray-400 stroke-[1.5]" />
+                  {/* Photo / Avatar with Gold Border Accent */}
+                  <div className="relative mb-4">
+                    {'image' in partner && partner.image ? (
+                      <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#C79D3B] shadow-md group-hover:scale-105 group-hover:shadow-lg transition-all duration-300 bg-white">
+                        <img
+                          src={partner.image}
+                          alt={partner.name}
+                          className="w-full h-full object-cover object-center"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#0D1117] via-[#161F2E] to-[#0D1117] text-[#C79D3B] flex items-center justify-center font-extrabold text-2xl tracking-wider border-2 border-[#C79D3B]/40 shadow-md group-hover:scale-105 group-hover:border-[#C79D3B] transition-all">
+                        {partner.initials}
+                      </div>
+                    )}
+                    {/* Small Certified Crown/Badge */}
+                    <div
+                      className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#C79D3B] text-[#0D1117] flex items-center justify-center text-xs font-black shadow-sm"
+                      title="Partner & Owner"
+                    >
+                      ✓
+                    </div>
                   </div>
-                  <h3 className="font-bold text-gray-950 text-sm mb-1">
-                    {`${t.partnerLabel} ${idx}`}
+
+                  {/* Partner Name */}
+                  <h3 className="font-extrabold text-gray-950 text-base mb-1 tracking-tight">
+                    {partner.name}
                   </h3>
-                  <span className="text-[11px] text-[#C79D3B] font-bold mb-2 uppercase tracking-wide">
-                    {t.partnerRoles[idx - 1]}
+
+                  {/* Role Title */}
+                  <span className="text-[11px] text-[#C79D3B] font-bold mb-3 uppercase tracking-wider">
+                    {partner.role}
                   </span>
-                  <p className="text-[11px] text-gray-500 leading-relaxed">
-                    {t.partnerPlaceholder}
+
+                  {/* Nationality Badge */}
+                  <div className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-gray-200/80 text-xs font-semibold text-gray-800 shadow-xs">
+                    <span className="text-sm">{partner.flag}</span>
+                    <span>{partner.nationality}</span>
+                  </div>
+
+                  {/* Bio */}
+                  <p className="text-[12px] text-gray-500 leading-relaxed mt-auto pt-3 border-t border-gray-200/60 w-full">
+                    {partner.bio}
                   </p>
                 </div>
               ))}

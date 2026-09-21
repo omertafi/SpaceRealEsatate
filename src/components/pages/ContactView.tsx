@@ -29,14 +29,9 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLang, onNavigat
     setIsSubmitting(true);
     setErrorMessage(null);
 
-    // Fallback mailtoLink built in client
-    const fallbackMailto = `mailto:alalfy@accountant.com?subject=${encodeURIComponent(
-      `Space Real Estate Inquiry from ${formData.fullName} (${formData.clientType})`
-    )}&body=${encodeURIComponent(
-      `Name: ${formData.fullName}\nPhone: ${formData.phone || 'N/A'}\nEmail: ${formData.email}\nType: ${formData.clientType}\n\nMessage:\n${formData.message}`
-    )}`;
-    setMailtoLink(fallbackMailto);
+    let sentSuccessfully = false;
 
+    // 1. Try local Node.js backend route (/api/contact)
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -47,19 +42,79 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLang, onNavigat
       });
 
       if (response.ok) {
-        const data = await response.json();
-        if (data?.mailtoLink) {
-          setMailtoLink(data.mailtoLink);
+        const data = await response.json().catch(() => null);
+        if (data?.success) {
+          sentSuccessfully = true;
+          if (data?.mailtoLink) {
+            setMailtoLink(data.mailtoLink);
+          }
         }
       }
-
-      setFormSubmitted(true);
-    } catch (err: any) {
-      console.warn('Backend contact dispatch notice, falling back smoothly:', err);
-      setFormSubmitted(true);
-    } finally {
-      setIsSubmitting(false);
+    } catch {
+      // Backend not running (e.g. static hosting on cPanel/Vercel/Netlify)
     }
+
+    // 2. If not sent yet, try cPanel / PHP hosting handler (/contact.php)
+    if (!sentSuccessfully) {
+      try {
+        const phpResponse = await fetch('/contact.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (phpResponse.ok) {
+          const phpData = await phpResponse.json().catch(() => null);
+          if (phpData?.success) {
+            sentSuccessfully = true;
+          }
+        }
+      } catch {
+        // PHP not available
+      }
+    }
+
+    // 3. If not sent yet, submit directly from the browser to FormSubmit (works on ANY static host!)
+    if (!sentSuccessfully) {
+      try {
+        const fsResponse = await fetch('https://formsubmit.co/ajax/alalfy@accountant.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.fullName,
+            phone: formData.phone || 'N/A',
+            email: formData.email,
+            client_type: formData.clientType,
+            message: formData.message,
+            _subject: `Space Real Estate Inquiry from ${formData.fullName} (${formData.clientType})`,
+            _template: 'table',
+            _captcha: 'false',
+          }),
+        });
+
+        if (fsResponse.ok) {
+          const fsData = await fsResponse.json().catch(() => null);
+          if (fsData && (fsData.success === 'true' || fsData.success === true)) {
+            sentSuccessfully = true;
+          }
+        }
+      } catch (fsErr) {
+        console.warn('FormSubmit direct fetch notice:', fsErr);
+      }
+    }
+
+    if (sentSuccessfully) {
+      setFormSubmitted(true);
+    } else {
+      setErrorMessage(labels.errorMsg);
+    }
+
+    setIsSubmitting(false);
   };
 
   const getClientTypeLabel = (type: string) => {
@@ -134,6 +189,15 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLang, onNavigat
       ? '感谢您联系 Space 房地产。您的咨询已直接送达负责人，我们将尽快与您取得联系。'
       : 'Thank you for contacting Space Real Estate. Your message has been sent directly to our management team and we will reach out shortly.',
     sendAnother: currentLang === 'ar' ? 'إرسال رسالة أخرى' : currentLang === 'ur' ? 'ایک اور پیغام بھیجیں' : currentLang === 'ru' ? 'Отправить еще' : currentLang === 'zh' ? '发送新留言' : 'Send Another Message',
+    errorMsg: currentLang === 'ar'
+      ? 'تعذر الإرسال حالياً، يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة عبر واتساب.'
+      : currentLang === 'ur'
+      ? 'خودکار ترسیل ممکن نہیں ہو سکی، براہ کرم دوبارہ کوشش کریں یا واٹس ایپ پر رابطہ کریں۔'
+      : currentLang === 'ru'
+      ? 'Не удалось отправить сообщение. Пожалуйста, повторите попытку или напишите нам в WhatsApp.'
+      : currentLang === 'zh'
+      ? '暂时无法自动发送，请重试或直接通过 WhatsApp 联系我们。'
+      : 'Could not send at this moment. Please try again or contact us directly via WhatsApp.',
     dispatchedDirectly: currentLang === 'ar' 
       ? 'تم توجيه الرسالة مباشرة إلى: ' 
       : currentLang === 'ur' 
@@ -355,6 +419,13 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLang, onNavigat
                     className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:border-[#C79D3B] focus:outline-none focus:ring-1 focus:ring-[#C79D3B] transition-colors resize-none"
                   />
                 </div>
+
+                {/* Error Message */}
+                {errorMessage && (
+                  <div className="rounded-xl bg-amber-50 border border-amber-200 p-3.5 text-xs text-amber-900 leading-relaxed">
+                    {errorMessage}
+                  </div>
+                )}
 
                 {/* Submit Button */}
                 <button

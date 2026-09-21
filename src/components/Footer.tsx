@@ -89,6 +89,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigatePage }) =
               <div className="mb-4 inline-block">
                 <SpaceLogo
                   variant="horizontal"
+                  size="sm"
                   color="#FFFFFF"
                   accentColor="#C79D3B"
                   markClassName="w-8 h-8"

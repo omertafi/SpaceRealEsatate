@@ -1,5 +1,27 @@
 [
   {
+    "id": "1790032046946",
+    "timestamp": "2026-09-21T23:07:26.946Z",
+    "fullName": "Salem Direct Client",
+    "phone": "+971509988776",
+    "email": "salem@example.com",
+    "clientType": "buyer",
+    "message": "I want to buy a 2-bedroom in Ajman Downtown",
+    "deliveredVia": "formsubmit",
+    "recipient": "alalfy@accountant.com"
+  },
+  {
+    "id": "1790027475230",
+    "timestamp": "2026-09-21T21:51:15.230Z",
+    "fullName": "MOHAMED ALALFY",
+    "phone": "+971505795412",
+    "email": "alalfy6299@gmail.com",
+    "clientType": "owner",
+    "message": "لابالل",
+    "deliveredVia": "formsubmit",
+    "recipient": "alalfy@accountant.com"
+  },
+  {
     "id": "1790027290685",
     "timestamp": "2026-09-21T21:48:10.685Z",
     "fullName": "Nasser Test",
