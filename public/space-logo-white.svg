@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1150" width="1000" height="1150" fill="none">
+  <!-- Symbol Mark matching official SPACE Real Estate logo -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="42" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="10">
+    <!-- Left House Roof -->
+    <path d="M 220 340 L 400 160 L 530 290" />
+    <!-- Left House Wall & Baseline -->
+    <path d="M 220 340 L 220 670 L 680 670" />
+
+    <!-- Center House Wall & Long Diagonal Rafter & Right Wing Hook -->
+    <path d="M 330 600 L 330 420 L 510 240 L 814 544 L 814 670 L 734 670 L 734 624" />
+
+    <!-- Top Tower & Right Wall -->
+    <path d="M 510 240 L 610 140 L 680 210 L 680 670" />
+
+    <!-- Bottom Foundation Plinth Box -->
+    <path d="M 330 670 L 330 780 L 680 780 L 680 670 Z" />
+  </g>
+
+  <!-- Typography -->
+  <text x="500" y="940" font-family="'Montserrat', 'Plus Jakarta Sans', 'Liberation Sans', sans-serif" font-size="120" font-weight="900" letter-spacing="24" fill="#FFFFFF" text-anchor="middle">SPACE</text>
+  <text x="500" y="1020" font-family="'Montserrat', 'Plus Jakarta Sans', 'Liberation Sans', sans-serif" font-size="34" font-weight="600" letter-spacing="20" fill="#C79D3B" text-anchor="middle">REAL ESTATE</text>
+</svg>
