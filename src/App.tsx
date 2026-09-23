@@ -7,9 +7,21 @@ import { HomeView } from './components/pages/HomeView';
 import { AboutView } from './components/pages/AboutView';
 import { ServicesView } from './components/pages/ServicesView';
 import { ContactView } from './components/pages/ContactView';
+import { updateDocumentSeo } from './utils/seo';
 
 export default function App() {
   const [currentLang, setCurrentLang] = useState<Language>(() => {
+    // 1. Check URL query param (?lang=...) for direct SEO links
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      if (urlLang === 'ar' || urlLang === 'en' || urlLang === 'ru' || urlLang === 'zh' || urlLang === 'ur') {
+        return urlLang as Language;
+      }
+    } catch {
+      // Fallback
+    }
+
     const saved = localStorage.getItem('space_re_lang');
     if (saved === 'ar' || saved === 'en' || saved === 'ru' || saved === 'zh' || saved === 'ur') {
       return saved as Language;
@@ -17,9 +29,19 @@ export default function App() {
     return 'en'; // Default language is English as requested
   });
 
-  const [activePage, setActivePage] = useState<NavigationPage>('home');
+  const [activePage, setActivePage] = useState<NavigationPage>(() => {
+    try {
+      const hash = window.location.hash.replace('#', '').split('?')[0];
+      if (hash === 'about' || hash === 'services' || hash === 'management' || hash === 'contact') {
+        return hash === 'management' ? 'services' : (hash as NavigationPage);
+      }
+    } catch {
+      // Fallback
+    }
+    return 'home';
+  });
 
-  // Sync RTL and document language
+  // Sync RTL, document language, and Dynamic Multilingual SEO metadata
   useEffect(() => {
     localStorage.setItem('space_re_lang', currentLang);
     document.documentElement.lang = currentLang;
@@ -31,7 +53,10 @@ export default function App() {
       document.documentElement.dir = 'ltr';
       document.body.classList.remove('font-cairo');
     }
-  }, [currentLang]);
+
+    // Update document title, meta description, keywords, and OpenGraph/Twitter tags
+    updateDocumentSeo(currentLang, activePage);
+  }, [currentLang, activePage]);
 
   const handleLanguageSelect = (lang: Language) => {
     setCurrentLang(lang);

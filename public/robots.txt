@@ -1,0 +1,19 @@
+# robots.txt for Space Real Estate (Ajman, UAE)
+User-agent: *
+Allow: /
+
+# Dedicated search bot directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Sitemaps
+Sitemap: /sitemap.xml

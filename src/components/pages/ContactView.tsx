@@ -15,7 +15,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLang, onNavigat
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [mailtoLink, setMailtoLink] = useState<string>('mailto:alalfy@accountant.com');
+  const [mailtoLink, setMailtoLink] = useState<string>('mailto:info@spacereal.estate');
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -79,7 +79,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLang, onNavigat
     // 3. If not sent yet, submit directly from the browser to FormSubmit (works on ANY static host!)
     if (!sentSuccessfully) {
       try {
-        const fsResponse = await fetch('https://formsubmit.co/ajax/alalfy@accountant.com', {
+        const fsResponse = await fetch('https://formsubmit.co/ajax/info@spacereal.estate', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -208,14 +208,14 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLang, onNavigat
       ? '信息已直接派发至：' 
       : 'Dispatched directly to: ',
     directNotice: currentLang === 'ar'
-      ? 'تصل جميع الرسائل مباشرة إلى بريد الإدارة: alalfy@accountant.com'
+      ? 'تصل جميع الرسائل مباشرة إلى بريد الإدارة: info@spacereal.estate'
       : currentLang === 'ur'
-      ? 'تمام پیغامات براہ راست انتظامی ای میل alalfy@accountant.com پر موصول ہوتے ہیں'
+      ? 'تمام پیغامات براہ راست انتظامی ای میل info@spacereal.estate پر موصول ہوتے ہیں'
       : currentLang === 'ru'
-      ? 'Все сообщения поступают напрямую на почту руководства: alalfy@accountant.com'
+      ? 'Все сообщения поступают напрямую на почту руководства: info@spacereal.estate'
       : currentLang === 'zh'
-      ? '所有留言均直接派发至管理层官方邮箱：alalfy@accountant.com'
-      : 'All inquiries are delivered directly to executive management: alalfy@accountant.com',
+      ? '所有留言均直接派发至管理层官方邮箱：info@spacereal.estate'
+      : 'All inquiries are delivered directly to executive management: info@spacereal.estate',
     openEmailClient: currentLang === 'ar'
       ? 'فتح في تطبيق البريد (Gmail / Outlook)'
       : currentLang === 'ur'
@@ -297,10 +297,10 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLang, onNavigat
               {labels.emailLabel}
             </span>
             <a
-              href="mailto:alalfy@accountant.com"
+              href="mailto:info@spacereal.estate"
               className="font-bold text-gray-950 hover:text-[#C79D3B] text-sm sm:text-base transition-colors"
             >
-              alalfy@accountant.com
+              info@spacereal.estate
             </a>
           </div>
         </div>

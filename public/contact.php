@@ -1,7 +1,7 @@
 <?php
 /**
  * Space Real Estate - Direct Contact Form Handler for PHP / cPanel / Shared Hosting
- * Target: alalfy@accountant.com
+ * Target: info@spacereal.estate
  */
 
 header('Access-Control-Allow-Origin: *');
@@ -40,7 +40,7 @@ if (empty($fullName) || empty($email) || empty($message)) {
     exit();
 }
 
-$recipient = 'alalfy@accountant.com';
+$recipient = 'info@spacereal.estate';
 $subject = "Space Real Estate Inquiry from {$fullName} ({$clientType})";
 
 // Email Body

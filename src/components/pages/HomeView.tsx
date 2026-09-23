@@ -361,11 +361,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ currentLang, onNavigatePage 
               </a>
 
               <a
-                href="mailto:alalfy@accountant.com"
+                href="mailto:info@spacereal.estate"
                 className="inline-flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-[#C79D3B]" />
-                <span>alalfy@accountant.com</span>
+                <span>info@spacereal.estate</span>
               </a>
             </div>
           </div>

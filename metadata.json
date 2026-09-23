@@ -1,6 +1,6 @@
 {
   "name": "SPACE Real Estate",
-  "description": "Space Real Estate is a property management and real estate sales company based in Ajman. We manage buildings end to end on behalf of owners, and partner with leading UAE developers to help buyers find their next property.",
+  "description": "SPACE Real Estate is a premier property management and real estate brokerage firm operating across Dubai, Abu Dhabi, Sharjah, Ajman, and all United Arab Emirates. We manage buildings end-to-end for owners and partner with leading UAE master developers for premium property sales.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

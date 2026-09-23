@@ -8,7 +8,7 @@
     "clientType": "buyer",
     "message": "I want to buy a 2-bedroom in Ajman Downtown",
     "deliveredVia": "formsubmit",
-    "recipient": "alalfy@accountant.com"
+    "recipient": "info@spacereal.estate"
   },
   {
     "id": "1790027475230",
@@ -19,7 +19,7 @@
     "clientType": "owner",
     "message": "لابالل",
     "deliveredVia": "formsubmit",
-    "recipient": "alalfy@accountant.com"
+    "recipient": "info@spacereal.estate"
   },
   {
     "id": "1790027290685",
@@ -30,6 +30,6 @@
     "clientType": "buyer",
     "message": "Testing Space Real Estate form",
     "deliveredVia": "none",
-    "recipient": "alalfy@accountant.com"
+    "recipient": "info@spacereal.estate"
   }
 ]

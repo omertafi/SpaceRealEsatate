@@ -171,8 +171,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigatePage }) =
                   </a>
                 </p>
                 <p>
-                  <a href="mailto:alalfy@accountant.com" className="hover:text-white transition-colors block">
-                    alalfy@accountant.com
+                  <a href="mailto:info@spacereal.estate" className="hover:text-white transition-colors block">
+                    info@spacereal.estate
                   </a>
                 </p>
               </div>

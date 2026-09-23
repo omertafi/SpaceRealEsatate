@@ -23,7 +23,7 @@ async function startServer() {
     res.json({ status: 'ok', node: 'SPACE Quantum Real Estate', timestamp: new Date().toISOString() });
   });
 
-  // Direct Lead & Inquiry Contact Endpoint (Sends directly to alalfy@accountant.com)
+  // Direct Lead & Inquiry Contact Endpoint (Sends directly to info@spacereal.estate)
   app.post('/api/contact', async (req, res) => {
     try {
       const { fullName, phone, email, clientType, message } = req.body;
@@ -31,7 +31,7 @@ async function startServer() {
         return res.status(400).json({ error: 'Please provide full name, email, and message.' });
       }
 
-      const recipient = process.env.TARGET_INQUIRY_EMAIL || 'alalfy@accountant.com';
+      const recipient = process.env.TARGET_INQUIRY_EMAIL || 'info@spacereal.estate';
       const subject = `Space Real Estate Inquiry from ${fullName} (${clientType || 'Client'})`;
 
       let deliveredVia = 'none';
